@@ -53,6 +53,14 @@ const Article: NextPage = () => {
       {user && article.user_id === user.id ? (
         <>
           <Spacer y={0.5} />
+          <Button
+            size="sm"
+            onPress={() => router.push("/editArticle?id=" + id)}
+          >
+            {" "}
+            Edit
+          </Button>
+          <Spacer y={0.5} />
           <Button size="sm" color="error" onPress={() => deleteArticle()}>
             Delete
           </Button>
