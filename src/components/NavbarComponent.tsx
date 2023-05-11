@@ -16,7 +16,7 @@ const NavbarComponent = () => {
   return (
     <Navbar isBordered isCompact>
       <Navbar.Brand as={Link} href="/">
-        ShareArticles
+        Sideshow 🤡
       </Navbar.Brand>
       <Navbar.Content hideIn="xs" variant="highlight-rounded">
         <Navbar.Link href="/mainFeed">Main Feed</Navbar.Link>
