@@ -1,34 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Welcome to the Article Posting Web Project! This project provides a simple platform for users to post, view, edit, and delete articles. Users can sign up, sign in, and perform various actions related to articles.
 
-## Getting Started
+# **Requirements**
+These are the requirements needed to run the project:
+- Node 18 LTS
+- Next.JS 12
+- Supabase V2
 
-First, run the development server:
+# **Features**
+## **Authentication and Account Management**
+- **User Sign Up**: Users can create an account by signing up with their credentials.
+- **User Sign In**: Registered users can sign in to access their accounts and perform actions.
+- **User Reset Password**: Users can reset their password if they are unable to sign in. 
 
-```bash
-npm run dev
-# or
-yarn dev
+## **Articles**
+- **View Articles**: Users can browse and view all posted articles.
+- **Create Articles**: Signed-in users can create new articles by providing a title and content.
+- **Edit Articles**: Users can edit their own articles by updating the title and content.
+- **Delete Articles**: Users have the ability to delete their own articles.
+
+# **Stack**
+These are the main technologies that were used in this project:
+- [**TypeScript**](https://www.typescriptlang.org/): TypeScript is a superset of JavaScript that adds optional static typing and other features to make the development of large-scale JavaScript applications easier and more efficient. TypeScript enables developers to catch errors earlier in the development process, write more maintainable code, and benefit from advanced editor support.
+- [**Next.js**](https://nextjs.org/): Next.js is a popular React framework for building server-side rendered (SSR) and statically generated web applications. It provides a set of tools and conventions that make it easy to build modern, performant web applications that can be easily deployed to a variety of hosting environments.
+- [**NextUI**](https://nextui.org/): NextUI is a UI component library built specifically for Next.js applications. It offers a collection of customizable and reusable components that follow the principles of minimalism, simplicity, and accessibility. NextUI provides a consistent and delightful user experience while promoting efficient development practices.
+- [**Supabase**](https://supabase.io/): Supabase is an open-source Firebase alternative that provides a backend-as-a-service platform. It combines the power of a PostgreSQL database with a set of RESTful APIs and authentication services. Supabase offers real-time data syncing, user authentication, and authorization, making it a suitable choice for building modern web applications with a scalable and secure backend.
+
+# **Running Application Locally**
+These are simple steps to run the application locally. For more detail instructions:
+
+## 1. **Clone the repository**
+
+```
+git clone https://github.com/mbeps/sideshow-articles.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 2. **Navigate to the project directory**
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+cd article-posting-web-project
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 3. **Install dependencies**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+npm install
+```
 
-## Learn More
+## 4. **Set up the environment variables**
+   - Create a `.env.local` file in the project root directory.
+   - Define the following environment variables in the `.env.local` file from Supabase:
 
-To learn more about Next.js, take a look at the following resources:
+```
+NEXT_PUBLIC_SUPABASE_URL = ''
+NEXT_PUBLIC_SUPABASE_ANON_KEY = ''
+NEXT_PUBLIC_DATABASE_PASSWORD = ''
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 5. **Start the development server**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+npm run dev
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This should run the project on `localhost:3000`
