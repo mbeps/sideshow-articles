@@ -6,6 +6,14 @@ import { NextUIProvider } from "@nextui-org/react";
 import { Box } from "../components/Box";
 import Navbar from "../components/NavbarComponent";
 
+/**
+ * Override the default behavior of the app.
+ * Adds a navbar and a box around the content for every page.
+ * Adds integration with Supabase.
+ * Adds integration with NextUI.
+ * @param {AppProps} param0: The props for the app such as the Component and pageProps
+ * @returns {JSX.Element} The app with the overrides
+ */
 function MyApp({ Component, pageProps }: AppProps) {
   const [supabaseClient] = useState(() => createBrowserSupabaseClient());
 
