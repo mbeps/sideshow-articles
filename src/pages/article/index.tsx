@@ -4,6 +4,11 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
+/**
+ * Displays the article data (single article view).
+ * If the user is the author of the article, they can edit or delete it.
+ * @returns {NextPage}
+ */
 const Article: NextPage = () => {
   const supabaseClient = useSupabaseClient();
   const user = useUser();
@@ -12,6 +17,9 @@ const Article: NextPage = () => {
 
   const { id } = router.query;
 
+  /**
+   * Get the current article data from the database.
+   */
   useEffect(() => {
     async function getArticle() {
       const { data, error } = await supabaseClient
@@ -30,6 +38,10 @@ const Article: NextPage = () => {
     }
   }, [id]);
 
+  /**
+   * Deletes the current article from the database.
+   * After deleting, redirects to the main feed.
+   */
   const deleteArticle = async () => {
     try {
       const { data, error } = await supabaseClient

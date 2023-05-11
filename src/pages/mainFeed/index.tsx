@@ -1,20 +1,24 @@
 import { Text } from "@nextui-org/react";
-import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import type { NextPage } from "next";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import ArticleCard from "../../components/ArticleCard";
 
+/**
+ * Displays the main feed of articles.
+ * @returns {JSX.Element}
+ */
 const MainFeed: NextPage = () => {
   const supabaseClient = useSupabaseClient();
-  const user = useUser();
-  const router = useRouter();
   const [articles, setArticles] = useState<string[]>([]);
 
   useEffect(() => {
     getArticles();
   }, []);
 
+  /**
+   * Retrieves the articles from the database and sets the articles state.
+   */
   const getArticles = async () => {
     try {
       const { data, error } = await supabaseClient

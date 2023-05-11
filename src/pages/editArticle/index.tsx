@@ -5,12 +5,20 @@ import { Text, Textarea, Grid, Button } from "@nextui-org/react";
 import { withPageAuth } from "@supabase/auth-helpers-nextjs";
 import { useState, useEffect } from "react";
 
+/**
+ * Displays the page where the user can edit an article.
+ * @returns {NextPage}
+ */
 const EditArticle: NextPage = () => {
   const supabaseClient = useSupabaseClient();
   const user = useUser();
   const router = useRouter();
   const { id } = router.query;
 
+  /**
+   * The initial state of the article data.
+   * Initially, the title and content are empty.
+   */
   const initialState = {
     title: "",
     content: "",
@@ -18,10 +26,18 @@ const EditArticle: NextPage = () => {
 
   const [articleData, setArticleData] = useState(initialState);
 
+  /**
+   * Updates the article data when the user types in the title or content.
+   * @param e (any): change event
+   */
   const handleChange = (e: any) => {
     setArticleData({ ...articleData, [e.target.name]: e.target.value });
   };
 
+  /**
+   * Gets the article data from the database and stores it in the state.
+   * This populates the title and content fields for the user to view and edit.
+   */
   useEffect(() => {
     async function getArticle() {
       const { data, error } = await supabaseClient
@@ -40,6 +56,10 @@ const EditArticle: NextPage = () => {
     }
   }, [id]);
 
+  /**
+   * Updates the article in the database with the new title and content.
+   * After the article is updated, the user is redirected to the article page.
+   */
   const editArticle = async () => {
     try {
       const { data, error } = await supabaseClient
@@ -58,7 +78,6 @@ const EditArticle: NextPage = () => {
     }
   };
 
-  console.log(articleData);
   return (
     <Grid.Container gap={1}>
       <Text h3>Title</Text>

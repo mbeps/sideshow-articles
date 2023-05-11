@@ -6,6 +6,13 @@ interface Props {
   article: any;
 }
 
+/**
+ * Article card component which displays the title, date and author of an article.
+ * This is used in the main feed to display all the articles.
+ * Clicking on the card will redirect the user to the article page.
+ * @param props
+ * @returns {JSX.Element} The JSX Code for the ArticleCard component.
+ */
 const ArticleCard: NextPage<Props> = (props) => {
   const router = useRouter();
   const { article } = props;

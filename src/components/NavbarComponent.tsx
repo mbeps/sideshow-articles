@@ -3,11 +3,21 @@ import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+/**
+ * Navbar component which has a link to the main feed, a link to create an article and a link to login or sign out.
+ * If the user is logged in, it will display their email and a sign out button.
+ * If the user is not logged in, it will display a login button.
+ *
+ * @returns {JSX.Element} The JSX Code for the Navbar component.
+ */
 const NavbarComponent = () => {
   const supabaseClient = useSupabaseClient();
   const user = useUser();
   const router = useRouter();
 
+  /**
+   * Signs out the user and redirects them to the home page.
+   */
   function signOutUser() {
     supabaseClient.auth.signOut();
     router.push("/");

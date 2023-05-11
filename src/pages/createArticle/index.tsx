@@ -5,11 +5,19 @@ import { Text, Textarea, Grid, Button } from "@nextui-org/react";
 import { withPageAuth } from "@supabase/auth-helpers-nextjs";
 import { useState } from "react";
 
+/**
+ * Displays the page where the user can create a new article.
+ * @returns {NextPage}
+ */
 const CreateArticle: NextPage = () => {
   const supabaseClient = useSupabaseClient();
   const user = useUser();
   const router = useRouter();
 
+  /**
+   * The initial state of the article data.
+   * Initially, the title and content are empty.
+   */
   const initialState = {
     title: "",
     content: "",
@@ -17,10 +25,19 @@ const CreateArticle: NextPage = () => {
 
   const [articleData, setArticleData] = useState(initialState);
 
+  /**
+   * Updates the article data when the user types in the title or content.
+   * @param e (any): change event
+   */
   const handleChange = (e: any) => {
     setArticleData({ ...articleData, [e.target.name]: e.target.value });
   };
 
+  /**
+   * Creates a new article in the database.
+   * The current user's email and id are also stored.
+   * After the article is created, the user is redirected to the main feed.
+   */
   const createArticle = async () => {
     try {
       const { data, error } = await supabaseClient
@@ -78,4 +95,7 @@ const CreateArticle: NextPage = () => {
 
 export default CreateArticle;
 
+/**
+ * Redirects the user to the login page if they are not logged in.
+ */
 export const getServerSideProps = withPageAuth({ redirectTo: "/login" });

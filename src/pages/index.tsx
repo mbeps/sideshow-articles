@@ -1,7 +1,10 @@
+import { Spacer, Text } from "@nextui-org/react";
 import type { NextPage } from "next";
-import styles from "../styles/Home.module.css";
-import { Text, Spacer } from "@nextui-org/react";
 
+/**
+ * Displays welcome message on the home page.
+ * @returns {JSX.Element}: The home page
+ */
 const Home: NextPage = () => {
   return (
     <>
