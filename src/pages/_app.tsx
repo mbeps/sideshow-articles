@@ -12,7 +12,19 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <SessionContextProvider supabaseClient={supabaseClient}>
       <NextUIProvider>
-        <Component {...pageProps} />
+        <Navbar />
+        <Box
+          css={{
+            px: "$12",
+            py: "$15",
+            mt: "$12",
+            "@xsMax": { px: "$10" },
+            maxWidth: "800px",
+            margin: "0 auto",
+          }}
+        >
+          <Component {...pageProps} />
+        </Box>
       </NextUIProvider>
     </SessionContextProvider>
   );
